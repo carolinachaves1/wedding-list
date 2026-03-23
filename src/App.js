@@ -10,6 +10,12 @@ import rodoImg from './assets/rodo.png';
 import ferroImg from './assets/ferroPassar.jpg';
 import vassouraImg from './assets/vassoura.png';
 import vassoura2Img from './assets/vassoura2.png';
+import portaTemperosImg from './assets/temperos.png';
+import baldesImg from './assets/baldes.jpg';
+import kitVassouraRodoImg from './assets/kitVassoura.jpg';
+import salImg from './assets/saleiro.jpg'
+import panelaEletricaImg from './assets/panelaPressao.jpg';
+import microondasImg from './assets/microondas.jpg';
 
 function App() {
   return (
@@ -34,14 +40,16 @@ function App() {
           <div className="gifts-grid">
             {[
               { name: 'Lixeira de Pia', price: 40, image: lixeiraImg },
-              { name: 'Escova de Lavar Roupa', price: 20, image: escovaImg },
-              { name: 'Escada Três Degraus', price: 120, image: escadaImg },
-              { name: 'Rodo', price: 25, image: rodoImg },
+              { name: 'Baldes', price: 30, image: baldesImg },
+              { name: 'Kit Vassoura/Rodo', price: 60, image: kitVassouraRodoImg },
               { name: 'Ferro de Passar', price: 80, image: ferroImg }, 
               { name: 'Conjunto de Panelas', price: 350, image: panelasImg },        
-              { name: 'Vassoura', price: 30, image: vassouraImg },       
-              { name: 'Balde com cesto inox centrifuga e esfregão', price: 80, image: vassoura2Img },  
-            ].map((g, i) => (
+              { name: 'Porta Temperos', price: 80, image: portaTemperosImg },  
+              { name: 'Saleiro/Açucareiro', price: 50, image: salImg },  
+              { name: 'Panela Elétrica', price: 300, image: panelaEletricaImg },
+              { name: 'Micro-ondas', price: 500, image: microondasImg }
+
+            ].sort((a, b) => a.price - b.price).map((g, i) => (
               <PresentCard key={g.name + i} name={g.name} price={g.price} image={g.image} emoji={g.emoji} />
             ))}
           </div>

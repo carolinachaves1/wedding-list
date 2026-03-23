@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 function generatePixCode(price) {
-  // Simple client-side pseudo Pix code generator
-  const token = Math.random().toString(36).slice(2, 10).toUpperCase();
-  const value = Number(price).toFixed(2).replace('.', '');
-  return `00020126580014br.gov.bcb.pix01${token}5204000053039865404${value}5802BR5925LISTA DE CASAMENTO6009SAO PAULO62070503***6304`;
+  return `00020101021126330014br.gov.bcb.pix0111095954336835204000053039865802BR5919VICTOR M R OLIVEIRA6006SABARA62070503***6304B115`;
 }
 
 export default function PixModal({ open, onOpenChange, giftName, price }) {
@@ -15,7 +12,6 @@ export default function PixModal({ open, onOpenChange, giftName, price }) {
     if (open) {
       setPixCode(generatePixCode(price));
       setCopied(false);
-      // prevent body scroll when modal open
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -45,6 +41,7 @@ export default function PixModal({ open, onOpenChange, giftName, price }) {
         <header className="pix-header">
           <h3>Presentear com {giftName}</h3>
           <div className="pix-price">{Number(price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</div>
+          <span className='pix-note'>Imagem e valor simbólico. Sinta-se à vontade para escolher um valor.</span>
         </header>
 
         <div className="pix-body">
