@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+/* Prevent accidental horizontal overflow from 100vw elements */
+html, body {
+  overflow-x: hidden;
+}
+
+/* make box-sizing predictable */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* Page background: dark canvas to transition into from the hero */
 body, .App {
   background-color: #0b0b0d; /* dark background color */
@@ -89,9 +99,14 @@ body, .App {
 .hero {
   text-align: center;
   padding: 48px 18px;
-  background: linear-gradient(180deg, rgba(255,250,250,0.98) 0%, rgba(255,250,250,0.9) 25%, rgba(255,250,250,0.75) 45%);
-  border-radius: 12px;
+  /* optional floral background: drop a file at public/hero-flowers.jpg to use */
+  /* background-image: url('/hero-flowers.jpg'); */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  border-radius: 0 0 12px 12px;
   position: relative;
+  color: #fff;
 }
 
 /* Make hero full-bleed across the viewport while keeping inner content centered */
@@ -133,27 +148,38 @@ body, .App {
 
 .hero h2 {
   margin: 0 0 10px 0;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-weight: 700;
-  color: #2b1b1b;
-  font-size: clamp(32px, 6vw, 64px);
+  color: #fff;
+  font-size: clamp(36px, 6.5vw, 76px);
   letter-spacing: -0.6px;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.6);
 }
 
 .hero-couple {
   margin: 6px 0 12px 0;
-  font-family: 'Georgia', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  color: #b85a61;
-  font-size: clamp(18px, 3.2vw, 28px);
+  color: #e61b7a;
+  font-size: clamp(20px, 3.8vw, 30px);
 }
 
 .hero-desc {
   margin: 0 auto;
-  color: #666061;
+  color: rgba(255,255,255,0.85);
   max-width: 760px;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1.05rem;
+}
+
+/* dark overlay to make hero text readable over image */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.75) 100%);
+  border-radius: 0 0 12px 12px;
+  pointer-events: none;
 }
 
 .gifts-section {
@@ -161,9 +187,10 @@ body, .App {
 }
 .gifts-title {
   text-align: center;
-  font-family: 'Georgia', serif;
-  font-size: 1.8rem;
-  margin-bottom: 18px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin: 40px 0 24px 0;
+  color: #fff;
 }
 .gifts-grid {
   display: grid;
@@ -172,40 +199,42 @@ body, .App {
   align-items: stretch;
 }
 .present-card {
-  background: #141414;
-  border: 1px solid #333333;
-  padding: 22px;
-  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 26px 22px;
+  border-radius: 14px;
   text-align: center;
-  box-shadow: 0 6px 12px rgba(15,15,15,0.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 220px;
 }
 .present-emoji {
-  font-size: 48px;
-  margin-bottom: 12px;
+  font-size: 56px;
+  margin-bottom: 14px;
 }
 .present-name {
   margin: 6px 0 8px 0;
-  font-family: 'Georgia', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1.05rem;
-  color: #eee;
+  color: #f3eef0;
 }
 .present-price {
   margin: 0 0 14px 0;
   font-size: 1.4rem;
-  color: #b84f59;
-  font-weight: 700;
+  color: #e61b7a;
+  font-weight: 800;
 }
 .btn-present {
-  background: #c85a66;
+  background: #e61b7a;
   color: #fff;
   border: none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-size: 0.95rem;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.98rem;
   cursor: pointer;
+  box-shadow: 0 6px 12px rgba(230,27,122,0.12) inset;
 }
 .btn-present:hover {
   filter: brightness(0.95);
@@ -223,13 +252,15 @@ body, .App {
   padding: 24px;
 }
 .pix-modal {
-  background: #fff;
+  background: #121212; /* dark modal */
+  color: #fff;
   width: 100%;
-  max-width: 520px;
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  max-width: 640px;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
   position: relative;
-  padding: 20px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.04);
 }
 .pix-close {
   position: absolute;
@@ -238,15 +269,17 @@ body, .App {
   background: transparent;
   border: none;
   font-size: 22px;
+  color: rgba(255,255,255,0.85);
   cursor: pointer;
 }
 .pix-header h3 {
   margin: 0 0 6px 0;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
+  font-family: 'Playfair Display', serif;
 }
 .pix-price {
-  color: #6b5560;
-  margin-bottom: 8px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 12px;
 }
 .pix-body {
   display: flex;
@@ -254,51 +287,61 @@ body, .App {
   gap: 12px;
 }
 .pix-code-box {
-  background: #faf6f6;
-  border: 1px solid rgba(0,0,0,0.06);
-  padding: 14px;
+  background: #0f0f10;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 16px;
   border-radius: 10px;
 }
 .pix-code-label {
   font-size: 12px;
-  font-weight: 600;
-  color: #8a7b7f;
+  font-weight: 700;
+  color: #d8cfd1;
   margin-bottom: 8px;
+  letter-spacing: 0.6px;
 }
 .pix-code {
   margin: 0;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
   font-size: 12px;
   white-space: pre-wrap;
-  word-break: break-all;
-  color: #4b4246;
+  word-break: break-word;
+  color: rgba(255,255,255,0.9);
 }
 .pix-copy-btn {
-  background: #c85a66;
+  background: linear-gradient(180deg,#e61b7a,#c61263);
   color: #fff;
   border: none;
-  padding: 12px 14px;
+  padding: 14px 16px;
   border-radius: 10px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.pix-copy-btn.copied {
+  background: linear-gradient(180deg,#2d8f5a,#1f6b45);
 }
 .pix-copy-btn.copied {
   background: #7aa27a;
 }
 .pix-instructions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: flex-start;
-  background: #fff5f5;
-  border: 1px solid rgba(200,90,110,0.12);
-  padding: 12px;
+  background: linear-gradient(180deg, rgba(198,90,120,0.06), rgba(198,90,120,0.02));
+  border: 1px solid rgba(198,140,80,0.15);
+  padding: 14px;
   border-radius: 10px;
 }
 .pix-instr-icon {
   font-size: 20px;
+  color: #e61b7a;
 }
 .pix-instructions p {
   margin: 0;
-  color: #4b4246;
-  font-size: 0.95rem;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.98rem;
 }

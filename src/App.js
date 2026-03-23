@@ -6,7 +6,7 @@ import PresentCard from './components/PresentCard';
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
 
       <main className="App-main">
         <section className="hero">
