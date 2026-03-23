@@ -201,7 +201,7 @@ body, .App {
 .present-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.03);
-  padding: 26px 22px;
+  padding: 12px 22px 22px;
   border-radius: 14px;
   text-align: center;
   box-shadow: 0 6px 18px rgba(0,0,0,0.6);
@@ -210,9 +210,18 @@ body, .App {
   justify-content: space-between;
   min-height: 220px;
 }
-.present-emoji {
-  font-size: 56px;
-  margin-bottom: 14px;
+.present-image {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 6px auto 12px auto;
+  padding: 8px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
 }
 .present-name {
   margin: 6px 0 8px 0;
