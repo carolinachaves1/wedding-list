@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wedding-list/static/css/main.85191d9f.css",
+    "main.js": "/wedding-list/static/js/main.c97188a4.js",
+    "static/js/453.d908e7f4.chunk.js": "/wedding-list/static/js/453.d908e7f4.chunk.js",
+    "index.html": "/wedding-list/index.html",
+    "main.85191d9f.css.map": "/wedding-list/static/css/main.85191d9f.css.map",
+    "main.c97188a4.js.map": "/wedding-list/static/js/main.c97188a4.js.map",
+    "453.d908e7f4.chunk.js.map": "/wedding-list/static/js/453.d908e7f4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.85191d9f.css",
+    "static/js/main.c97188a4.js"
+  ]
+}
