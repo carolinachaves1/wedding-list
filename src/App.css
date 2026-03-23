@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+/* Page background: dark canvas to transition into from the hero */
+body, .App {
+  background-color: #0b0b0d; /* dark background color */
+  color: #eee;
+  min-height: 100vh;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -21,7 +28,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #121212;
 }
 
 .App-link {
@@ -35,4 +42,263 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Header and footer for the wedding gift list */
+.site-header {
+  background: linear-gradient(90deg, #121212, #121212);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 18px 12px;
+}
+.site-header .container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #222;
+}
+.site-footer {
+  background: #121212;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding: 18px 12px;
+  margin-top: 36px;
+}
+.site-footer .container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.site-footer p {
+  margin: 0;
+  color: #444;
+  font-size: 0.95rem;
+}
+.App-main {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 12px;
+}
+.hero {
+  text-align: center;
+  padding: 48px 18px;
+  background: linear-gradient(180deg, rgba(255,250,250,0.98) 0%, rgba(255,250,250,0.9) 25%, rgba(255,250,250,0.75) 45%);
+  border-radius: 12px;
+  position: relative;
+}
+
+/* Make hero full-bleed across the viewport while keeping inner content centered */
+.hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  box-sizing: border-box;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+/* Create a smooth transition from the hero (light) to the page background (dark) */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 260px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,250,250,0) 0%, rgba(11,11,13,0.02) 30%, rgba(11,11,13,0.25) 55%, rgba(11,11,13,0.75) 80%, rgba(11,11,13,1) 100%);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.hero-heart {
+  font-size: 28px;
+  color: #c20075;
+  margin-bottom: 8px;
+  opacity: 0.95;
+}
+
+.hero h2 {
+  margin: 0 0 10px 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 700;
+  color: #2b1b1b;
+  font-size: clamp(32px, 6vw, 64px);
+  letter-spacing: -0.6px;
+}
+
+.hero-couple {
+  margin: 6px 0 12px 0;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  color: #b85a61;
+  font-size: clamp(18px, 3.2vw, 28px);
+}
+
+.hero-desc {
+  margin: 0 auto;
+  color: #666061;
+  max-width: 760px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.gifts-section {
+  margin-top: 28px;
+}
+.gifts-title {
+  text-align: center;
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+}
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+.present-card {
+  background: #141414;
+  border: 1px solid #333333;
+  padding: 22px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(15,15,15,0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.present-emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+.present-name {
+  margin: 6px 0 8px 0;
+  font-family: 'Georgia', serif;
+  font-size: 1.05rem;
+  color: #eee;
+}
+.present-price {
+  margin: 0 0 14px 0;
+  font-size: 1.4rem;
+  color: #b84f59;
+  font-weight: 700;
+}
+.btn-present {
+  background: #c85a66;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.btn-present:hover {
+  filter: brightness(0.95);
+}
+
+/* Pix modal styles */
+.pix-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: 24px;
+}
+.pix-modal {
+  background: #fff;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  position: relative;
+  padding: 20px;
+}
+.pix-close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+.pix-header h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+}
+.pix-price {
+  color: #6b5560;
+  margin-bottom: 8px;
+}
+.pix-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pix-code-box {
+  background: #faf6f6;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 14px;
+  border-radius: 10px;
+}
+.pix-code-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8a7b7f;
+  margin-bottom: 8px;
+}
+.pix-code {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #4b4246;
+}
+.pix-copy-btn {
+  background: #c85a66;
+  color: #fff;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.pix-copy-btn.copied {
+  background: #7aa27a;
+}
+.pix-instructions {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: #fff5f5;
+  border: 1px solid rgba(200,90,110,0.12);
+  padding: 12px;
+  border-radius: 10px;
+}
+.pix-instr-icon {
+  font-size: 20px;
+}
+.pix-instructions p {
+  margin: 0;
+  color: #4b4246;
+  font-size: 0.95rem;
 }
