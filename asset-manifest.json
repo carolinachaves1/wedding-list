@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/wedding-list/static/css/main.1430a6b4.css",
-    "main.js": "/wedding-list/static/js/main.51a9481b.js",
+    "main.css": "/wedding-list/static/css/main.c49dd361.css",
+    "main.js": "/wedding-list/static/js/main.1e956814.js",
     "static/js/453.d908e7f4.chunk.js": "/wedding-list/static/js/453.d908e7f4.chunk.js",
     "static/media/vassoura2.png": "/wedding-list/static/media/vassoura2.c19545104eb4691994d5.png",
     "static/media/vassoura.png": "/wedding-list/static/media/vassoura.d0eb18baa1d3f2d355de.png",
     "static/media/rodo.png": "/wedding-list/static/media/rodo.83d06975e2bbab97e60e.png",
     "static/media/escova.jpg": "/wedding-list/static/media/escova.ac9846d770d9b6df794f.jpg",
+    "static/media/temperos.png": "/wedding-list/static/media/temperos.04c05ec728e6d7e5387b.png",
+    "static/media/baldes.jpg": "/wedding-list/static/media/baldes.694cdd0c3e0a527a9da0.jpg",
     "static/media/escada3.jpg": "/wedding-list/static/media/escada3.2ea10b5c726c3233b276.jpg",
     "static/media/panela.jpg": "/wedding-list/static/media/panela.e63193d05c4ca468fddf.jpg",
+    "static/media/saleiro.jpg": "/wedding-list/static/media/saleiro.9f589c1415d721b552cd.jpg",
     "index.html": "/wedding-list/index.html",
-    "main.1430a6b4.css.map": "/wedding-list/static/css/main.1430a6b4.css.map",
-    "main.51a9481b.js.map": "/wedding-list/static/js/main.51a9481b.js.map",
+    "main.c49dd361.css.map": "/wedding-list/static/css/main.c49dd361.css.map",
+    "main.1e956814.js.map": "/wedding-list/static/js/main.1e956814.js.map",
     "453.d908e7f4.chunk.js.map": "/wedding-list/static/js/453.d908e7f4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1430a6b4.css",
-    "static/js/main.51a9481b.js"
+    "static/css/main.c49dd361.css",
+    "static/js/main.1e956814.js"
   ]
 }
